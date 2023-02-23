@@ -1,16 +1,17 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 )
 
 func main() {
-	log.Println("Server started on port 9090")
-	err := http.ListenAndServe(":9090", http.FileServer(http.Dir("../../docs")))
+	fs := http.FileServer(http.Dir("./docs"))
+	http.Handle("/", fs)
+
+	log.Println("Listening on http://localhost:9090/index.html")
+	err := http.ListenAndServe(":9090", nil)
 	if err != nil {
-		fmt.Println("Failed to start server", err)
-		return
+		log.Fatal(err)
 	}
 }
