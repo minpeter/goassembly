@@ -8,7 +8,7 @@ import (
 
 func main() {
 	log.Println("Server started on port 9090")
-	err := http.ListenAndServe(":9090", http.FileServer(http.Dir("../../assets")))
+	err := http.ListenAndServe(":9090", http.FileServer(http.Dir("../../docs")))
 	if err != nil {
 		fmt.Println("Failed to start server", err)
 		return
