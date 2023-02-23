@@ -1,4 +1,4 @@
-# goassembly
+# json-formatter
 
 🦾 go web assembly json formatter
 
